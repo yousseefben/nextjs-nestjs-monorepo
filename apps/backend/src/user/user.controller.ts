@@ -12,9 +12,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Get('/me')
   async getMe(@Request() req: any) {
-    console.log('req.user.emai :>> ', req.user);
     const user = await this.clientService.findClientByEmail(req.user.email);
-    console.log('user bullshit :>> ', user);
 
     return user;
   }

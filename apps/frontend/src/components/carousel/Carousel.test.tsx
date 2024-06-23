@@ -21,7 +21,7 @@ describe("Carousel", () => {
   test("updates the active slide when an indicator is clicked", () => {
     render(<Carousel photos={mockPhotos} />);
     const indicators = screen.getAllByRole("button");
-    fireEvent.click(indicators[1]); // Click the second indicator
+    fireEvent.click(indicators[1]);
     expect(screen.getByAltText("Photo 2")).toBeInTheDocument();
   });
 });

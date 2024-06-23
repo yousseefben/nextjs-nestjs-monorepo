@@ -1,4 +1,4 @@
-import { registerSchema } from "../registerForm.schema"; // Adjust the import path as necessary
+import { registerSchema } from "../registerForm.schema";
 describe("registerSchema", () => {
   it("should pass validation with valid data", () => {
     const validData = {
@@ -110,7 +110,7 @@ describe("registerSchema", () => {
       confirmPassword: "Password1",
       photos: [
         { name: "photo1.jpg", type: "image/jpeg", size: 1000000 },
-        { name: "photo2.jpg", type: "image/gif", size: 1500000 }, // Unsupported type
+        { name: "photo2.jpg", type: "image/gif", size: 1500000 },
         { name: "photo3.jpg", type: "image/jpeg", size: 2000000 },
         { name: "photo4.jpg", type: "image/jpeg", size: 2500000 },
       ],

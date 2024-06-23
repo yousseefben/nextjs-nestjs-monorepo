@@ -30,7 +30,6 @@ export const registerSchema = z
       .any()
       .refine(
         (files) => {
-          console.log("files, files.length :>> ", files, files.length);
           return files.length >= 4;
         },
         {

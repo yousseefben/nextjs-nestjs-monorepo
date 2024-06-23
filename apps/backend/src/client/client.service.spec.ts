@@ -104,7 +104,7 @@ describe('ClientService', () => {
 
     it('should create and save a new client successfully', async () => {
       userService.findByEmail = jest.fn().mockResolvedValue(null);
-      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never); // Type assertion to handle TypeScript error
+      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never);
       clientRepository.create = jest.fn().mockReturnValue(mockClient);
       clientRepository.save = jest.fn().mockResolvedValue(mockClient);
       photoService.createPhoto = jest.fn().mockResolvedValue({});
@@ -123,7 +123,7 @@ describe('ClientService', () => {
 
     it('should throw BadRequestException if error occurs during saving client', async () => {
       userService.findByEmail = jest.fn().mockResolvedValue(null);
-      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never); // Type assertion to handle TypeScript error
+      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never);
       clientRepository.create = jest.fn().mockReturnValue(mockClient);
       clientRepository.save = jest
         .fn()
@@ -136,7 +136,7 @@ describe('ClientService', () => {
 
     it('should throw BadRequestException if error occurs during saving photos', async () => {
       userService.findByEmail = jest.fn().mockResolvedValue(null);
-      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never); // Type assertion to handle TypeScript error
+      jest.spyOn(bcrypt, 'hash').mockResolvedValue('hashedPassword' as never);
       clientRepository.create = jest.fn().mockReturnValue(mockClient);
       clientRepository.save = jest.fn().mockResolvedValue(mockClient);
       photoService.createPhoto = jest

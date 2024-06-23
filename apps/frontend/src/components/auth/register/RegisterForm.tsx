@@ -12,53 +12,6 @@ import { useRouter } from "next/navigation";
 import { useRegisterForm } from "./useRegisterForm.hook";
 
 const RegisterForm = () => {
-  // const {
-  //   handleSubmit,
-  //   register,
-  //   formState: { errors, isSubmitting, isDirty, isValid },
-  //   setError,
-  // } = useForm<RegisterFormType>({
-  //   resolver: zodResolver(registerSchema),
-  //   reValidateMode: "onChange",
-  // });
-
-  // const router = useRouter();
-  // async function onSubmit(data: RegisterFormType) {
-  //   console.log(isSubmitting);
-  //   console.log(data);
-  //   const formdata = new FormData();
-  //   for (const key in data) {
-  //     console.log("key :>> ", key, data[key]);
-  //     if (key !== "photos") formdata.append(key, data[key]);
-  //   }
-  //   Array.from(data.photos).forEach((photo) =>
-  //     formdata.append("photos", photo)
-  //   );
-  //   const requestOptions = {
-  //     method: "POST",
-  //     body: formdata,
-  //   };
-
-  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/register`, requestOptions)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       if (result.error) {
-  //         result.message?.forEach((err) =>
-  //           setError(err.property, {
-  //             type: "server",
-  //             message: err.message,
-  //           })
-  //         );
-  //       } else {
-  //         router.push(ROUTES.LOGIN);
-  //       }
-  //     })
-
-  //     .catch((error) => {
-  //       console.error("err", error);
-  //     });
-  // }
-  // console.log("errors :>> ", errors);
   const {
     handleSubmit,
     register,
@@ -166,7 +119,6 @@ const RegisterForm = () => {
               <button
                 type="submit"
                 className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                // disabled={!isDirty || !isValid || isSubmitting}
               >
                 {isSubmitting ? "Submitting.." : "Sign In"}
               </button>

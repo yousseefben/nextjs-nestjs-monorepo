@@ -44,7 +44,6 @@ export class ClientService {
 
     const { firstName, lastName, email, password } = createClientDto;
 
-    // Check if the email is already in use
     let existingUser;
     try {
       existingUser = await this.userService.findByEmail(email);
@@ -62,7 +61,6 @@ export class ClientService {
       ]);
     }
 
-    // Hash the password
     let hashedPassword;
     try {
       hashedPassword = await bcrypt.hash(password, 10);
@@ -70,8 +68,6 @@ export class ClientService {
       this.logger.error('Error hashing password', error);
       throw new BadRequestException('Error hashing password');
     }
-
-    // Create a new client entity
     const client = this.clientRepository.create({
       firstName,
       lastName,
@@ -80,7 +76,6 @@ export class ClientService {
       avatar: DEFAULT_AVATAR_URL,
     });
 
-    // Save the client entity
     try {
       await this.clientRepository.save(client);
       this.logger.log('Client saved successfully');
@@ -89,7 +84,6 @@ export class ClientService {
       throw new BadRequestException('Error saving client');
     }
 
-    // Save photos
     try {
       await Promise.all(
         photos.map((photo) => this.photoService.createPhoto(photo, client)),
@@ -113,7 +107,6 @@ export class ClientService {
       });
       if (!user) throw new InternalServerErrorException('Client not found');
       const { password, ...userInfo } = user!;
-      console.log('user photo :>> ', user.photos);
       return userInfo;
     } catch (error) {
       this.logger.error(`Failed to find user with email ${email}`, error.stack);

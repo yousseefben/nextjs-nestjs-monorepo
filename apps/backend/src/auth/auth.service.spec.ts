@@ -25,7 +25,7 @@ describe('AuthService', () => {
   const mockUser: Partial<User> = {
     id: 1,
     email: 'test@example.com',
-    password: '$2b$10$G91Aa1EpgWkS17ZEGaHlhe9FJ9NGBgDZWXjLz5j3CJyZgRPyOQwMm', // bcrypt hash of 'password'
+    password: '$2b$10$G91Aa1EpgWkS17ZEGaHlhe9FJ9NGBgDZWXjLz5j3CJyZgRPyOQwMm',
   };
 
   beforeEach(async () => {

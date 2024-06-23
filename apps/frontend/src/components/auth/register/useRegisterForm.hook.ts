@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation"; // Corrected from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { ROUTES } from "@frontend/src/constants/routes";
 import { RegisterFormType, registerSchema } from "./registerForm.schema";
 
@@ -10,7 +10,6 @@ export const useRegisterForm = () => {
   const { setError } = useForm<RegisterFormType>();
 
   const onSubmit = async (data: RegisterFormType) => {
-    console.log("data :>> ", data);
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       if (key !== PHOTO_FIELS) {
