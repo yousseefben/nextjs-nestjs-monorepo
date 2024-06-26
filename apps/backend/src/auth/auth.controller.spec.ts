@@ -2,14 +2,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '@backend/user/dto/login-user.dto';
-import {
-  UnauthorizedException,
-  InternalServerErrorException,
-} from '@nestjs/common';
 
 describe('AuthController', () => {
   let controller: AuthController;
-  let authService: AuthService;
 
   const mockAuthService = {
     validateUser: jest.fn(),
@@ -28,7 +23,6 @@ describe('AuthController', () => {
     }).compile();
 
     controller = module.get<AuthController>(AuthController);
-    authService = module.get<AuthService>(AuthService);
   });
 
   afterEach(() => {

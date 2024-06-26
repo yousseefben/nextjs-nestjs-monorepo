@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 export default async () => {
     const t = {
         ["./photo/photo.entity"]: await import("./photo/photo.entity"),

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@frontend/src/constants/routes";
-import { RegisterFormType, registerSchema } from "./registerForm.schema";
+import { RegisterFormType } from "./registerForm.schema";
 
 const PHOTO_FIELS = "photos";
 

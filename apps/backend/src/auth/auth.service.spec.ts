@@ -11,8 +11,6 @@ import {
 
 describe('AuthService', () => {
   let service: AuthService;
-  let userService: UserService;
-  let jwtService: JwtService;
 
   const mockUserService = {
     findByEmail: jest.fn(),

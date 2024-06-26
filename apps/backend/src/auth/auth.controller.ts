@@ -2,10 +2,6 @@ import {
   Controller,
   Post,
   Body,
-  UseGuards,
-  Request,
-  HttpException,
-  HttpStatus,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '@backend/user/dto/login-user.dto';

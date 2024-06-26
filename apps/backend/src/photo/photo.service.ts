@@ -45,7 +45,7 @@ export class PhotoService {
 
     const name = `${key}_${originalname}`;
     try {
-      const result = await this.s3Upload(buffer, name, mimetype);
+      await this.s3Upload(buffer, name, mimetype);
       this.logger.log(`File uploaded successfully: ${name}`);
       return name;
     } catch (error) {

@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { RegisterFormType, registerSchema } from "./registerForm.schema";
 import FormField from "../../FormField/FormField";
 import { ROUTES } from "@frontend/src/constants/routes";
-import { useRouter } from "next/navigation";
 import { useRegisterForm } from "./useRegisterForm.hook";
 
 const RegisterForm = () => {

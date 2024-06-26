@@ -1,13 +1,11 @@
 import {
   BadRequestException,
-  Inject,
   Injectable,
   InternalServerErrorException,
   Logger,
-  forwardRef,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Not, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Client } from './client.entity';
 import { CreateClientDto } from './dto/create-client.dto';
@@ -106,7 +104,7 @@ export class ClientService {
         relations: ['photos'],
       });
       if (!user) throw new InternalServerErrorException('Client not found');
-      const { password, ...userInfo } = user!;
+      const { password: _, ...userInfo } = user!;
       return userInfo;
     } catch (error) {
       this.logger.error(`Failed to find user with email ${email}`, error.stack);

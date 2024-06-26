@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import FormField from "../FormField";
 import { FormFieldProps } from "../form.types";
-import { useForm, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 
 const mockRegister: UseFormRegister<any> = jest.fn<any, any[]>(() => ({
   name: "test",

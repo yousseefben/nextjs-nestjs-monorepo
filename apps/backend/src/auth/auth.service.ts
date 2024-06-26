@@ -31,7 +31,7 @@ export class AuthService {
     }
     user = await this.userService.findByEmail(email);
     if (user?.password && (await bcrypt.compare(pass, user.password))) {
-      const { password, ...result } = user;
+      const { password: _, ...result } = user;
       return result;
     }
     this.logger.warn('Invalid credentials');

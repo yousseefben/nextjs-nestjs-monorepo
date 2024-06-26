@@ -12,15 +12,11 @@ import { repositoryMockFactory } from '../../../backend/test/helper';
 describe('PhotoService', () => {
   let service: PhotoService;
   let photoRepository: Repository<Photo>;
-  let configService: ConfigService;
 
   const mockConfigService = {
     get: jest.fn().mockReturnValue('mock-value'),
   };
 
-  const mockS3Client = {
-    send: jest.fn().mockResolvedValue({}),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

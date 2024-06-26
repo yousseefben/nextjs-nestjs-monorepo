@@ -3,7 +3,6 @@ import { NextAuthOptions, getServerSession } from "next-auth";
 import { jwtDecode } from "jwt-decode";
 import { ROUTES } from "@frontend/src/constants/routes";
 import { isTokenExpired } from "./utils";
-import { JWT } from "next-auth/jwt";
 
 export const authOptions: NextAuthOptions = {
   session: {

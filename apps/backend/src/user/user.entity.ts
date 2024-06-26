@@ -2,7 +2,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  OneToMany,
   BeforeInsert,
   TableInheritance,
 } from 'typeorm';
@@ -10,10 +9,7 @@ import {
   IsString,
   IsEmail,
   MinLength,
-  IsOptional,
-  IsUrl,
 } from 'class-validator';
-import { Photo } from '../photo/photo.entity';
 import { BaseEntity } from 'typeorm/repository/BaseEntity';
 
 @Entity()

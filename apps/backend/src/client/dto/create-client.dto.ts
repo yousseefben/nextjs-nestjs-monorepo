@@ -1,10 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
 import {
   IsString,
   IsEmail,
   Length,
-  IsArray,
-  ArrayMinSize,
 } from 'class-validator';
 
 export class CreateClientDto {

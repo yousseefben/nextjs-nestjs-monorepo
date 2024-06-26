@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Nabla } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar/navbar";
 import { getSession } from "../helper/auth";

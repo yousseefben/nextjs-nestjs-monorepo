@@ -2,12 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ClientController } from './client.controller';
 import { ClientService } from './client.service';
 import { CreateClientDto } from './dto/create-client.dto';
-import { FilesInterceptor } from '@nestjs/platform-express';
-import {
-  MAX_PHOTO_ALLOWED,
-  multerOptionsPhoto,
-} from '@backend/config/multer.config';
-import { RegisterClientDto } from './dto/register-client.dto';
+
+
 import {
   BadRequestException,
   InternalServerErrorException,

@@ -1,5 +1,5 @@
 import { User } from '@backend/user/user.entity';
-import { Entity, Column, OneToMany, BeforeInsert, ChildEntity } from 'typeorm';
+import { Column, OneToMany, ChildEntity } from 'typeorm';
 import { IsOptional, IsUrl } from 'class-validator';
 import { Photo } from '@backend/photo/photo.entity';
 

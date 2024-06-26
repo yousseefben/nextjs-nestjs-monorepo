@@ -3,11 +3,7 @@ import { UserService } from './user.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
-import {
-  Logger,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
+import { InternalServerErrorException } from '@nestjs/common';
 
 describe('UserService', () => {
   let userService: UserService;
@@ -40,8 +36,6 @@ describe('UserService', () => {
     });
 
     it('should throw NotFoundException if user is not found', async () => {
-      const email = 'test@example.com';
-
       jest.spyOn(userRepository, 'findOne').mockResolvedValue(null);
     });
 

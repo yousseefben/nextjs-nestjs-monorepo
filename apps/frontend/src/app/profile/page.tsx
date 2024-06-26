@@ -1,8 +1,6 @@
 import { getUserInfos } from "@frontend/src/api/api";
 import Carousel from "@frontend/src/components/carousel/Carousel";
 import ProfileCard from "@frontend/src/components/profile/profile-card";
-import fetcher from "@frontend/src/helper/fetcher";
-import Image from "next/image";
 
 export default async function Profile() {
   const profile = await getUserInfos();
