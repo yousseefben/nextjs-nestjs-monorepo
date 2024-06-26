@@ -1,14 +1,31 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ClientModule } from './client/client.module';
 import { PhotoModule } from './photo/photo.module';
-import { validate } from './config/env.validation';
+import { EnvironmentVariables, validate } from './config/env.validation';
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, validate }), // what
+    ConfigModule.forRoot({ isGlobal: true, validate }),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService], // Inject ConfigService for dynamic configuration
+      useFactory: async (
+        configService: ConfigService<EnvironmentVariables>,
+      ) => ({
+        type: 'postgres',
+        host: configService.get('DB_HOST'),
+        port: configService.get('DB_PORT', 5432),
+        username: configService.get('DB_USERNAME'),
+        password: configService.get('DB_PASSWORD'),
+        database: configService.get('DB_DATABASE'),
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        synchronize: configService.get('NODE_ENV') === 'development',
+        ssl: true,
+      }),
+    }),
+
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,

@@ -36,6 +36,9 @@ pnpm build:frontend
 pnpm start:backend
 pnpm start:frontend
 ```
+## Swagger docs URL
+
+http://localhost:4000/docs
 
 ## Code structure
 
