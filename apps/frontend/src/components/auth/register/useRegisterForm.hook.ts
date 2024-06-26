@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { ROUTES } from "@frontend/src/constants/routes";
 import { RegisterFormType } from "./registerForm.schema";
+import { useState } from "react";
 
 const PHOTO_FIELS = "photos";
 
 export const useRegisterForm = () => {
   const router = useRouter();
+  const [isSuccessful, setIsSuccessful] = useState(false);
   const { setError } = useForm<RegisterFormType>();
 
   const onSubmit = async (data: RegisterFormType) => {
@@ -40,12 +41,12 @@ export const useRegisterForm = () => {
             })
         );
       } else {
-        router.push(ROUTES.LOGIN);
+        setIsSuccessful(true);
       }
     } catch (error) {
       console.error("Registration error:", error);
     }
   };
 
-  return { onSubmit };
+  return { onSubmit, isSuccessful };
 };
