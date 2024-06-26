@@ -1,7 +1,6 @@
-import { getSession } from "next-auth/react";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../app/api/auth/[...nextauth]/route";
+import { getSession as getAuthSession } from "next-auth/react";
 import { Session } from "next-auth";
+import { getSession } from "./auth";
 
 interface FetchOptions extends RequestInit {
   headers?: HeadersInit & {
@@ -14,9 +13,7 @@ const fetcher = async (
   options: FetchOptions = {}
 ): Promise<Response> => {
   const session: Session | null =
-    typeof window === "undefined"
-      ? await getServerSession(authOptions)
-      : await getSession();
+    typeof window === "undefined" ? await getSession() : await getAuthSession();
 
   const headers = {
     ...options.headers,

@@ -1,6 +1,6 @@
 import { withAuth } from "next-auth/middleware";
-import { isTokenExpired } from "./helper/auth";
 import { ROUTES } from "./constants/routes";
+import { isTokenExpired } from "./helper/utils";
 
 export default withAuth({
   callbacks: {

@@ -5,8 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { RegisterFormType, registerSchema } from "./registerForm.schema";
 import FormField from "../../FormField/FormField";
-import { getSession } from "next-auth/react";
-import fetcher from "@frontend/src/helper/fetcher";
 import { ROUTES } from "@frontend/src/constants/routes";
 import { useRouter } from "next/navigation";
 import { useRegisterForm } from "./useRegisterForm.hook";
@@ -107,10 +105,10 @@ const RegisterForm = () => {
                   type="file"
                   multiple
                 />
-                {errors?.photos && (
+                {errors?.photos?.message && (
                   <p className="mt-2 text-sm text-red-600 dark:text-red-500">
                     <span className="font-medium">
-                      {errors?.photos.message}
+                      {String(errors?.photos.message)}
                     </span>
                   </p>
                 )}

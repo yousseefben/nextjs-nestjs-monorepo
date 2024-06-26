@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run --parallel dev",
-    "build:server": "pnpm --filter backend build",
+    "build:backend": "pnpm --filter backend build",
     "build:frontend": "pnpm --filter frontend build",
-    "start:backend": "pnpm --filter server start:prod",
-    "start:frontend": "pnpm --filter web start"
+    "start:backend": "pnpm --filter backend start:prod",
+    "start:frontend": "pnpm --filter frontend start"
   },
   "keywords": [],
   "author": "",
