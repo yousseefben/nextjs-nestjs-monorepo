@@ -24,6 +24,7 @@ async function bootstrap() {
     .setTitle('Code demo')
     .setDescription('Demo app login register profile')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
 

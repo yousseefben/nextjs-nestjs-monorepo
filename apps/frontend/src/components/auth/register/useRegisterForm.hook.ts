@@ -18,7 +18,7 @@ export const useRegisterForm = () => {
       }
     });
 
-    Array.from(data.photos).forEach((photo: any) =>
+    Array.from<File>(data.photos).forEach((photo: File) =>
       formData.append(PHOTO_FIELS, photo)
     );
 
